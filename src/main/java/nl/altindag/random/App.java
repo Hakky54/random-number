@@ -1,0 +1,44 @@
+package nl.altindag.random;
+
+import java.io.IOException;
+import javafx.application.Application;
+import javafx.event.Event;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+@SpringBootApplication
+public class App extends Application {
+
+    private ConfigurableApplicationContext springContext;
+    private Parent root;
+
+    @Override
+    public void init() throws IOException {
+        springContext = SpringApplication.run(App.class);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/example.fxml"));
+        fxmlLoader.setControllerFactory(springContext::getBean);
+        root = fxmlLoader.load();
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Random number / UUID / HASH generator");
+        Scene scene = new Scene(root, 500, 200);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    @Override
+    public void stop() throws Exception {
+        springContext.stop();
+    }
+
+    public static void main(String[] args) {
+        launch(App.class, args);
+    }
+}
