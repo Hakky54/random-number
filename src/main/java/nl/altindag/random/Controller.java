@@ -26,9 +26,10 @@ public class Controller {
 
     @FXML
     public void getRandomNumber() throws InterruptedException {
-        int aRandomNumber = random.nextInt(999999999);
-        randomNumberOutputField.setText(String.valueOf(aRandomNumber));
-        randomHashOutputField.setText(BCrypt.hashpw(String.valueOf(aRandomNumber), BCrypt.gensalt()));
+        String aRandomNumber = String.valueOf(random.nextInt(999999999));
+
+        randomNumberOutputField.setText(aRandomNumber);
+        randomHashOutputField.setText(BCrypt.hashpw(aRandomNumber, BCrypt.gensalt()));
         randomUUIDOutputField.setText(UUID.randomUUID().toString());
     }
 
