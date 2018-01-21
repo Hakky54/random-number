@@ -1,15 +1,16 @@
 package nl.altindag.random;
 
-import java.util.Random;
-import java.util.UUID;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
-@Component
-public class Controller {
+import java.util.Random;
+import java.util.UUID;
+
+@Controller
+public class RandomController {
 
     @FXML
     private TextField randomUUIDOutputField;
@@ -20,12 +21,12 @@ public class Controller {
     private Random random;
 
     @Autowired
-    public Controller(Random random) {
+    public RandomController(Random random) {
         this.random = random;
     }
 
     @FXML
-    public void getRandomNumber() throws InterruptedException {
+    public void getRandomNumber() {
         String aRandomNumber = String.valueOf(random.nextInt(999999999));
 
         randomNumberOutputField.setText(aRandomNumber);

@@ -1,6 +1,5 @@
 package nl.altindag.random;
 
-import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +8,8 @@ import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+
+import java.io.IOException;
 
 @SpringBootApplication
 public class App extends Application {
@@ -25,7 +26,7 @@ public class App extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         primaryStage.setTitle("Random number / UUID / HASH generator");
         Scene scene = new Scene(root, 600, 200);
         primaryStage.setScene(scene);
@@ -33,7 +34,7 @@ public class App extends Application {
     }
 
     @Override
-    public void stop() throws Exception {
+    public void stop() {
         springContext.stop();
     }
 
