@@ -29,6 +29,7 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Random number / UUID / HASH generator");
         Scene scene = new Scene(root, 600, 200);
+        primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
