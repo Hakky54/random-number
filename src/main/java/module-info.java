@@ -7,5 +7,6 @@ module nl.altindag.random {
     requires spring.boot.autoconfigure;
     requires spring.boot;
 
-    exports nl.altindag.random;
+    opens nl.altindag.random to javafx.fxml, spring.core;
+    exports nl.altindag.random to javafx.graphics, spring.beans, spring.context;
 }
