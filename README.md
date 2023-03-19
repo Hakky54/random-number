@@ -6,9 +6,11 @@ This is a reference project to help you out with setting up a JavaFX application
 2. Maven
 
 **How to start**
-- Run the main method in the [App class](src/main/java/nl/altindag/random/App.java)
-- Run the following maven command from the terminal: `mvn clean package spring-boot:run`
-- Run the following maven command from the terminal: `mvn clean package exec:java`
+
+Run one of the following uptions below:
+1. Run the main method in the [App class](src/main/java/nl/altindag/random/App.java) from your IDE
+2. Run the following maven command from the terminal: `mvn clean package spring-boot:run`
+3. Run the following maven command from the terminal: `mvn clean package exec:java`
 
 **Create an executable jar**
 - With the fallowing command it will generate an executable jar in the target directory for you: `mvn clean package`
